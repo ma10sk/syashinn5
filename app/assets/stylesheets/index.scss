@@ -1,0 +1,23 @@
+.photos-container {
+    display: flex;
+    justify-content: center;
+}
+
+.photo {
+    width: 200px; /* 正方形の横幅 */
+    height: 200px;/* 正方形の高さ */
+    position: relative; /* 基準位置とする */
+    overflow: hidden;   /* はみ出た分を非表示 */
+  }
+  
+.photo img {
+    position: absolute; /* 相対位置とする */
+    top: 50%;           /* 上から50%の位置 */
+    left: 50%;          /* 左から50%の位置 */
+    min-width: 100%; /* 横幅の最小値を100%に */
+    min-height: 100%; /* 高さの最小値を100%に */
+    transform: translate(-50%, -50%); /* 画像のサイズの半分だけ位置を戻す */
+  }  
+
+ 
+  

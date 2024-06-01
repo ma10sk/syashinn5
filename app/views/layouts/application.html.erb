@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Syashinn</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+   <header>
+   <h1>自分の題名 ヘッダー</h1>
+   <div class="header-list">
+    <ul>
+     <% if user_signed_in? %>
+      <li><%= link_to "投稿一覧", photos_path %></li>
+      <li><%= link_to "新規投稿", new_photo_path %></li>
+      <li><%= link_to "ハッシュタグ検索", photos_top_path %></li>
+      <li><%= link_to "マイページ", user_path(current_user.id) %></li>
+      <li><%= link_to 'ログアウト', destroy_user_session_path, data: { method: :delete } %><?li>
+
+      <%#= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+
+     <% else %>
+     
+      <li><%= link_to "新規登録", new_user_registration_path %></li>
+      <li><%= link_to "ログイン", new_user_session_path %></li>
+     <% end %>
+    </ul>
+   </div>
+   </header>
+
+   <main>
+   <%= yield %>
+   </main>
+   
+   <footer>
+      <p> &copy; 2024 masan </p>
+   </footer>
+
+ </body>
+
+
+</html>

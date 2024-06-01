@@ -1,0 +1,16 @@
+<h3>ハッシュタグ編集</h3>
+<%= form_for @photo do |f| %>
+
+   <div class="image-top">
+   <%= image_tag @photo.resize_image_top if @photo.image_top.attached? %>
+   </div>
+       
+  <div class="field">
+    <p><%= f.label"ハッシュタグ (半角スペースを入力することで複数のタグを付けることができます。)" %></p>
+    <%= f.text_field :tag_name, value: @tag_list,class:"form-control"%>
+
+    <%= f.submit "編集する" %>
+  </div>
+
+<% end %>
+  

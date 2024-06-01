@@ -1,0 +1,19 @@
+<h3>投稿詳細</h3>
+<div class="image-top">
+  <%= image_tag @photo.resize_image_top if @photo.image_top.attached? %>
+  <br>
+  投稿日時 <%= @photo.created_at %>
+
+  <br>
+  <% @photo_tags.each do |tag| %>
+    <% if tag.photos.count > 0 %>
+      <i class="fa-solid fa-hashtag" style="color: #000000;"><%= link_to tag.tag_name, tag_photos_path(tag_id: tag.id) %></i>
+      <%= "(#{tag.photos.count})" %>
+    <% end %>
+  <% end %>
+
+</div>
+
+<%= link_to "編集", edit_photo_path(@photo.id) %>
+<%= link_to "削除", photo_path(@photo.id), data: { method: :delete, confirm: "本当に削除しますか？" } %>
+<%#= button_to "削除", photo_path(@photo.id), method: :delete, data: { confirm: "本当に削除しますか？" } %>

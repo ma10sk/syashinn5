@@ -1,0 +1,22 @@
+<h3>新規投稿</h3>
+<%= form_for @photo do |f| %>
+
+     <span class="image-top">
+       <%= f.label :image_top, "投稿画像" %>
+       <%= f.file_field :image_top, accept: "image/jpeg,image/gif,image/png" %>
+     </span>
+
+     <script type="text/javascript">
+     $("#photo_image_top, #photo_images").bind("change", function() {
+       var size_in_megabytes = this.files[0].size/1024/1024;
+       if (size_in_megabytes > 5) {
+         alert("Maximum file size is 5MB. Please choose a smaller file.");
+         $("#photo_image_top").val("");
+       }
+     });
+    </script>
+   
+  <p>ハッシュタグ(半角スペースを入力することで複数のタグを付けることができます。)</p>
+  <%= f.text_field :tag_name, placeholder: "" %>
+  <%= f.submit "投稿する" %>
+<% end %>

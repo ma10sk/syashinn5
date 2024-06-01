@@ -1,0 +1,15 @@
+<h3>ハッシュタグ検索</h3>
+<%= form_tag({controller:"photos",action:"top"}, method: :get) do %>
+  <%= text_field_tag :search %>
+  <%= submit_tag '検索する' %>
+<% end %>
+
+<h3>ハッシュタグ一覧</h3>
+<% @tag_list.each do |list| %>
+  <div class='tag一覧'>
+    <i class="fa-solid fa-hashtag" style="color: #000000;">
+      <%= link_to list.tag_name, tag_photos_path(tag_id: list.id) %>
+    </i>
+    <%= "(#{list.photos.count})" %>
+  </div>
+<% end %>
