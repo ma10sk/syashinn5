@@ -1,0 +1,144 @@
+body {
+    background: url("cl7.jpeg");
+    background-repeat: repeat-x; /* 背景画像を水平方向に繰り返し */
+    background-size: cover; /* 背景画像のサイズ指定（画面全体を覆う） */
+    animation: bgiLoop 90s linear infinite;
+  }
+@keyframes bgiLoop {
+      0% { background-position: 0px 0px;}
+    100% { background-position: 1600px 0px;}
+  }
+
+.userslogin .subtitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* 子要素の絶対位置を基準にする */
+    margin: 60px 0 0 0; /* 上にマージンを追加 */
+  }
+
+
+.userslogin h2 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 30px; /* 必要に応じて調整 */
+    font-weight: 500;
+    position: relative; /* before/after要素の基準 */
+    padding: 0 60px; /* 左右に余白を追加 */
+    display: inline-block;
+  }
+
+
+.userslogin h2:before,
+.userslogin h2:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 45px;
+    height: 1px;
+    background-color: black;
+    // display: inline-block;
+  }
+  
+.userslogin h2:before {
+    left: 0px;
+  }
+.userslogin h2:after {
+    right: 0px;
+  }
+
+.userslogin .userlogin-container{
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    justify-content: center;
+    // background-color: #ffffff;
+    margin: 40px 40px 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    // padding-left: 300px;
+    // gap: 20px;
+}
+
+
+.userslogin .userlogin-container .field {
+    margin-bottom: 13px; /* 各フィールドの下に余白を追加 */
+    display: flex;
+    flex-direction: column; /* 縦方向に配置 */
+    align-items: center; /* 左右中央に配置 */
+    width: 100%; /* 親要素の幅に対して中央に配置されるようにする */
+  }
+  
+.userslogin .userlogin-container h3 {
+    display: block;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: left; /* ラベルの文字を左寄せ */
+    width: 25%; /* ラベルをフィールドの幅に合わせる */
+  }
+
+.userslogin .userlogin-container .field input[type="email"],
+.userslogin .userlogin-container .field input[type="password"] {
+    width: 25%;
+    height: 25px;
+    padding: 5px; /* 必要に応じてパディングを追加 */
+    box-sizing: border-box; /* パディングを含めたボックスモデルにする */
+    margin-top: 10px;
+  }
+
+.userslogin .userlogin-container p {
+    font-size: 15px;
+    font-weight: 350;
+    display: block; /* ブロック要素として表示 */
+    text-align: left; /* テキストを左寄せ */
+    width: 25%;
+}
+
+.userslogin .userlogin-container .actions {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+  }
+
+.userslogin .userlogin-container .actions input[type="submit"] {
+    display: inline-block;
+    font-size: 15px;
+    padding: 0.3em 1em;
+    text-decoration: none;
+    border: solid 1.5px #00000075;
+    border-radius: 3px;
+    transition: .4s;
+    height: 35px;
+    width: 100px;
+    text-align: center;
+    vertical-align: middle; /* 垂直方向の中央揃え */
+  }
+  
+.userslogin .userlogin-container .actions input[type="submit"]:hover {
+    background: #00000075;
+    color: white;
+  }
+
+.userslogin .user-link-container {
+    display: flex;
+    justify-content: center;
+    gap: 0px; /* アイテム間のギャップを追加 */
+    margin-top: 130px;
+    margin-left: 40px;
+    padding-bottom: 10px;
+  }
+
+
+.userslogin .user-link-container a {
+    display: flex;
+    align-items: center;
+    color: #00006495; /* 削除リンクの色を赤にするなど、スタイルを追加できます */
+    text-transform: none; /* テキストの変換を無効にする */
+    text-decoration: none;
+    margin-right: 30px;
+  }
+
+.userslogin .user-link-container a:hover {
+    font-weight: 900;
+    // text-decoration: underline;
+  }

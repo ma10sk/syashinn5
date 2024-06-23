@@ -1,0 +1,118 @@
+body {
+    background: url("cl7.jpeg");
+    background-repeat: repeat-x; /* 背景画像を水平方向に繰り返し */
+    background-size: cover; /* 背景画像のサイズ指定（画面全体を覆う） */
+    animation: bgiLoop 90s linear infinite;
+  }
+@keyframes bgiLoop {
+      0% { background-position: 0px 0px;}
+    100% { background-position: 1600px 0px;}
+  }
+
+.usersshow .subtitle {
+    display: flex;
+    justify-content: center;
+    margin: 0px 0 0 0; /* 上にマージンを追加 */
+  }
+
+.usersshow h2 {
+    text-align:center;
+    position: relative;
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 500;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    padding: 0 60px;
+  }
+
+
+.usersshow h2:before,
+.usersshow h2:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    display: inline-block;
+    width: 45px;
+    height: 1px;
+    background-color: black;
+  }
+  
+.usersshow h2:before {
+    left: 0px;
+  }
+.usersshow h2:after {
+    right: 0px;
+  }
+
+.usersshow .user-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // background-color: #ffffff;
+    margin: 0px 60px 60px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    // gap: 100px;
+}
+
+.usersshow .image-top-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.usersshow .image-top {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    background-color: #ffffff95; /* 画像がない場合の背景色 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // margin-left: 350px; /* 右にずらす（必要に応じて調整） */
+}
+
+.usersshow .image-top img {
+    min-width: 100%; /* 横幅の最小値を100%に */
+    min-height: 100%; /* 高さの最小値を100%に */
+}
+
+.usersshow .user-sub-container {
+    flex: 1; /* 左右を同じ幅にする */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // margin-left: 50px;
+}
+
+.usersshow .user-sub-container p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: none; /* テキストの変換を無効にする */
+    font-size: 18px; /* 必要に応じて調整 */
+    font-weight: 400;
+    margin: 10px 0; /* ユーザー情報の間にマージンを追加 */
+}
+
+.usersshow .user-sub-container a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #00006495; /* 削除リンクの色を赤にするなど、スタイルを追加できます */
+    text-transform: none; /* テキストの変換を無効にする */
+    text-decoration: none;
+    font-size: 16px; /* 必要に応じて調整 */
+    font-weight: 400;
+    margin: 10px 0; /* ユーザー情報の間にマージンを追加 */
+}
+
+.usersshow .user-sub-container a:hover {
+    font-weight: 900;
+    // text-decoration: underline;
+}

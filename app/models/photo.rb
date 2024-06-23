@@ -18,26 +18,25 @@ class Photo < ApplicationRecord
   after_destroy :cleanup_unused_tags # 追記
 
     def resize_image_top
-      image_top.variant(resize_to_limit: [500, 200])
+      image_top.variant(resize_to_limit: [750, 300])
     end
 
-    
-    def save_tag(sent_tags)
-        current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
-        old_tags = current_tags - sent_tags
-        new_tags = sent_tags - current_tags
-   
-        old_tags.each do |old|
-          self.tags.delete Tag.find_by(tag_name: old)
-        end
-   
-        new_tags.each do |new|
-          new_photo_tag = Tag.find_or_create_by(tag_name: new)
-          self.tags << new_photo_tag
-        end
+  def save_tag(sent_tags) # 追記
+    current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
+    old_tags = current_tags - sent_tags
+    new_tags = sent_tags - current_tags
+  
+    old_tags.each do |old|
+      self.tags.delete Tag.find_by(tag_name: old)
     end
-
-  private #追記
+  
+    new_tags.each do |new|
+      new_photo_tag = Tag.find_or_create_by(tag_name: new, user_id: self.user_id) #
+      self.tags << new_photo_tag
+    end
+  end
+      
+  private # 追記
   def cleanup_unused_tags
     unused_tags = Tag.left_outer_joins(:tag_maps)
                      .group('tags.id')

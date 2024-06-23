@@ -1,19 +1,14 @@
-<%= stylesheet_link_tag 'index', :media => "all" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <%= stylesheet_link_tag 'photosindex', :media => "all" %>
+</head>
+<body class="photosindex">
 
-<%#= link_to "新規投稿", new_photo_path %>
-<%#= link_to "ハッシュタグ検索", photos_top_path %>
-<!-- % if user_signed_in? % -->
-  <%#= link_to "マイページ", user_path(current_user.id) %>
-<!-- % end % -->
-<!-- h3 ハッシュタグ一覧 /h3 --> 
-<!-- % @tag_list.each do |list| % -->
-  <!-- i class="fa-solid fa-hashtag" style="color: #000000;" --><!-- %= link_to list.tag_name, tag_photos_path(tag_id: list.id) % --><!-- /i -->
-  <!-- %= "(#{list.photos.count})" % -->
-<!-- % end % -->
+<div class="subtitle">
+<h2> <%= @user.name %> 投稿一覧 </h2>
+</div>
 
-
-<h3>投稿一覧</h3>
-画像をクリックすると投稿詳細が見られます
 <div class="photos-container">
 <% @photos.each do |t| %>
   <%= link_to photo_path(t.id) do %>
@@ -23,3 +18,6 @@
   <% end %>
 <% end %>
 </div>
+
+</body>
+</html>

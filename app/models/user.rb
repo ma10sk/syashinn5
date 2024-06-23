@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
 
   has_many :photos, dependent: :destroy
-  #has_many :tags
+  has_many :tags # 追記
   validates :name, presence: true
   validates :profile, length: { maximum: 200 }
 
@@ -24,7 +24,7 @@ class User < ApplicationRecord
   
  # image_top のリサイズ済み画像を返す
   def resize_image_top
-    image_top.variant(resize_to_limit: [500, 200])
+    image_top.variant(resize_to_limit: [750, 300])
   end
 
 end

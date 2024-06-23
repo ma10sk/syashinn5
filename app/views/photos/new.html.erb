@@ -1,9 +1,22 @@
-<h3>新規投稿</h3>
-<%= form_for @photo do |f| %>
+<!DOCTYPE html>
+<html>
+<head>
+    <%= stylesheet_link_tag 'photosnew', :media => "all" %>
+</head>
+<body class="photosnew">
 
+
+<div class="subtitle">
+<h2>新規投稿</h2>
+</div>
+
+<div class="photo-container">
+<%= form_for @photo do |f| %>
+     
+     <div class="fphoto">
      <span class="image-top">
-       <%= f.label :image_top, "投稿画像" %>
-       <%= f.file_field :image_top, accept: "image/jpeg,image/gif,image/png" %>
+       <h4><%= f.label :image_top, "投稿画像" %></h4>
+       <p><%= f.file_field :image_top, accept: "image/jpeg,image/gif,image/png" %></p>
      </span>
 
      <script type="text/javascript">
@@ -15,8 +28,16 @@
        }
      });
     </script>
-   
-  <p>ハッシュタグ(半角スペースを入力することで複数のタグを付けることができます。)</p>
-  <%= f.text_field :tag_name, placeholder: "" %>
+    </div>
+  
+  <div class="ftag">
+  <h4>ハッシュタグ</h4>
+  <h5>(半角スペースを入力することで複数のタグを付けることができます)</h5>
+  <p><%= f.text_field :tag_name, placeholder: "" %></p>
   <%= f.submit "投稿する" %>
+  </div>
 <% end %>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+body {
+    background: url("cl7.jpeg");
+    background-repeat: repeat-x; /* 背景画像を水平方向に繰り返し */
+    background-size: cover; /* 背景画像のサイズ指定（画面全体を覆う） */
+    animation: bgiLoop 90s linear infinite;
+  }
+@keyframes bgiLoop {
+      0% { background-position: 0px 0px;}
+    100% { background-position: 1600px 0px;}
+  }
+  
+.photosshow .subtitle {
+    display: flex;
+    justify-content: center;
+    margin: 0px 0 0 0; /* 上にマージンを追加 */
+  }
+
+.photosshow h2 {
+    text-align:center;
+    position: relative;
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 500;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    padding: 0 60px;
+  }
+
+
+.photosshow h2:before,
+.photosshow h2:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    display: inline-block;
+    width: 45px;
+    height: 1px;
+    background-color: black;
+  }
+  
+.photosshow h2:before {
+    left: 0px;
+  }
+.photosshow h2:after {
+    right: 0px;
+  }
+
+.photosshow .photo-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // background-color: #ffffff;
+    margin: 0px 250px 70px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.photosshow .image-top{
+    display: flex;
+    justify-content: center; 
+    margin-bottom: 20px;
+    // transform: scale(1.5); /* Scale the element 1.5 times its original size */
+    // transform-origin: center; /* Keep the scaling centered */
+}
+
+.photosshow .taglist-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* アイテムを複数行に並べる */
+    margin-top: 20px;
+    margin-bottom: 20px; /* 下部マージンを調整して間隔を狭く */
+    // margin-left: 200px;
+    // margin-right: 200px;
+  }
+
+.photosshow .taglist {
+    display: flex;
+    align-items: center;
+    margin: 5px 10px; /* タグリスト間にマージンを追加 */
+  }
+  
+.photosshow .tag-icon {
+    color: #000000;
+    margin-right: 2px; /* アイコンとテキストの間にスペースを追加 */
+  }
+  
+.photosshow .tag-link {
+    color: #000000;
+    font-weight: 400;
+    text-decoration: none;
+    margin-right: 2px; /* タグ名とタグ数の間にスペースを追加 */
+    text-transform: none; /* テキストの変換を無効にする */
+  }
+
+.photosshow .tag-link:hover{
+    font-weight: 900;
+  }
+
+.photosshow .tagline {
+    padding-bottom: 5px;
+    position: relative;
+  }
+.photosshow .tagline::before {
+    background: #000000;
+    content: '';
+    width: 100%;
+    height: 1.5px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    transform-origin: right top;
+    transform: scale(0, 1);
+    transition: transform .3s;
+  }
+.photosshow .tagline:hover::before {
+    transform-origin: left top;
+    transform: scale(1, 1);
+  }
+
+.photosshow .tag-delete-link-container{
+    display: flex;
+    justify-content: center;
+    gap: 0px; /* アイテム間のギャップを追加 */
+    margin-top: 0; /* 上部マージンを調整して間隔を狭く */
+    margin-left: 15px;
+    padding-bottom: 10px;
+  }
+
+  
+.photosshow .tag-delete-link {
+    display: flex;
+    align-items: center;
+    color: #00006495; /* 削除リンクの色を赤にするなど、スタイルを追加できます */
+    text-transform: none; /* テキストの変換を無効にする */
+    text-decoration: none;
+    margin-right: 20px;
+    
+  }
+
+.photosshow .tag-delete-link:hover {
+    font-weight: 900;
+    // text-decoration: underline;
+  }

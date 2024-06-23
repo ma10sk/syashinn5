@@ -1,23 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%= stylesheet_link_tag 'usersshow', :media => "all" %>
+</head>
+<body class="usersshow">
+
+<div class="subtitle">
 <h2>マイページ</h2>
-<p>ユーザーネーム : <%= @user.name %></p>
-
-<%= image_tag @user.resize_image_top, size: "150x150" if @user.image_top.attached? %>
-
-<p>メールアドレス : <%= @user.email %></p>
-<p>プロフィール : <%= @user.profile %></p>
-
-<% if current_user.id == @user.id %>
-  <%= link_to "アカウント情報の変更", edit_user_registration_path %>
-<% end %>
-
-<h3>投稿一覧</h3>
-画像をクリックすると投稿詳細が見られます
-<div class="photos-container">
-  <% @photos.each do |photo| %>
-    <%= link_to photo_path(photo.id) do %>
-      <div class="photo">
-        <%= image_tag photo.resize_image_top if photo.image_top.attached? %>
-      </div>
-    <% end %>
-  <% end %>
 </div>
+
+<div class="user-container">
+  <div class="image-top-container">
+  <div class="image-top">
+  <%= image_tag @user.resize_image_top if @user.image_top.attached? %>
+  </div>
+  </div>
+
+  <div class="user-sub-container">
+  <p>ユーザーネーム : <%= @user.name %></p>
+  <p>メールアドレス : <%= @user.email %></p>
+    <!-- プロフィール : %= @user.profile % -->
+  <% if current_user.id == @user.id %>
+   <%= link_to "アカウント情報の変更", edit_user_registration_path %>
+  <% end %>
+  </div>
+
+</div>
+
+</body>
+</html>

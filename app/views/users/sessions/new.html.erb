@@ -1,14 +1,24 @@
-<h2>ログイン</h2>
-<p>※登録したメールアドレスとパスワードを入力してください。</p>
+<!DOCTYPE html>
+<html>
+<head>
+    <%= stylesheet_link_tag 'userslogin', :media => "all" %>
+</head>
+<body class="userslogin">
 
+<div class="subtitle">
+<h2>ログイン</h2>
+</div>
+
+<div class="userlogin-container">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
   <div class="field">
-    <h2>メールアドレス</h2><br />
+    <h3>メールアドレス</h3>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <h2>パスワード </h2><br />
+    <h3>パスワード </h3>
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
@@ -23,4 +33,11 @@
   </div>
 <% end %>
 
+<div class="user-link-container">
 <%= render "users/shared/links" %>
+</div>
+
+</div>
+
+</body>
+</html>

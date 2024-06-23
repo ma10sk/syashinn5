@@ -1,0 +1,193 @@
+body {
+    background: url("cl7.jpeg");
+    background-repeat: repeat-x; /* 背景画像を水平方向に繰り返し */
+    background-size: cover; /* 背景画像のサイズ指定（画面全体を覆う） */
+    animation: bgiLoop 90s linear infinite;
+  }
+@keyframes bgiLoop {
+      0% { background-position: 0px 0px;}
+    100% { background-position: 1600px 0px;}
+  }
+  
+  .photostop .subtitle {
+    display: flex;
+    justify-content: center;
+    margin: 0px 0 0 0; /* 上にマージンを追加 */
+  }
+  
+  .photostop h2 {
+    text-align:center;
+    position: relative;
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 500;
+    margin-top: 60px;
+    margin-bottom: 0px;
+    padding: 0 60px;
+  }
+  
+  
+  .photostop h2:before,
+  .photostop h2:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    display: inline-block;
+    width: 45px;
+    height: 1px;
+    background-color: black;
+  }
+  
+  .photostop h2:before {
+    left: 0px;
+  }
+  .photostop h2:after {
+    right: 0px;
+  }
+
+  .photostop .search-container {
+    // display: flex;
+    // justify-content: center; /* 横方向の中央揃え */
+    // flex-direction: column;
+    margin: 50px auto;
+    padding: 2% 1%;
+    height: 40%;
+    width: 50%;
+    // border: solid #c8c8c8;
+    // border-radius: 10px;
+    text-align: center;
+    background-color: #ffffff;
+    background-image: linear-gradient(90deg, #c8c8c8 0%, #ffffff 50%, #c8c8c8 100%);
+    // background-color: #c8c8c8;
+    // background-image: linear-gradient(0deg, #c8c8c8 0%, #ffffff 100%);
+
+  }
+
+
+  .photostop input[type="text"] {
+    width: 40%;
+    height: 20px;
+    padding: 5px; /* 必要に応じてパディングを追加 */
+    box-sizing: border-box; /* パディングを含めたボックスモデルにする */
+  }
+
+  .photostop input[type="submit"] {
+    display: inline-block;
+    padding: 0.3em 1em;
+    text-decoration: none;
+    // color: black;
+    border: solid 1.5px #00000075;
+    border-radius: 3px;
+    transition: .4s;
+    width: 100px;
+    font-size: 15px;
+    margin-top: 15px;
+    margin-bottom: 0px;
+  }
+  
+  .photostop input[type="submit"]:hover {
+    background: #00000075;
+    color: white;
+  }
+
+  .photostop .subsubtitle {
+    display: flex;
+    align-items: center;
+    position: relative; /* 子要素の絶対位置を基準にする */
+  }
+
+  .photostop h3{
+    margin-left: 100px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 20px; /* 必要に応じて調整 */
+    font-weight: 500;
+    position: relative; /* before/after要素の基準 */
+    padding: 0 80px; /* 左右に余白を追加 */
+    display: inline-block;
+  }
+
+  .photostop h3:before,
+  .photostop h3:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 65px;
+    height: 1px;
+    background-color: black;
+    // display: inline-block;
+  }
+  
+  .photostop h3:before {
+    left: 0px;
+  }
+  .photostop h3:after {
+    right: 0px;
+  }
+
+  .photostop .taglist-container{
+    display: flex;
+    justify-content: flex-start; /* 左揃えにする */
+    flex-wrap: wrap; /* アイテムを複数行に並べる */
+    // gap: 30px; /* アイテム間のギャップを追加 */
+    margin: 20px 100px 70px;
+  }
+
+  .photostop .taglist {
+    display: flex;
+    align-items: center;
+    margin: 15px 15px; /* タグリスト間にマージンを追加 */
+  }
+  
+  .photostop .tag-icon {
+    color: #000000;
+    margin-right: 2px; /* アイコンとテキストの間にスペースを追加 */
+  }
+  
+  .photostop .tag-link {
+    color: #000000;
+    font-weight: 400;
+    text-decoration: none;
+    margin-right: 2px; /* タグ名とタグ数の間にスペースを追加 */
+    text-transform: none; /* テキストの変換を無効にする */
+  }
+
+  .photostop .tag-link:hover{
+    font-weight: 900;
+  }
+
+  .photostop .tagline {
+    padding-bottom: 5px;
+    position: relative;
+  }
+  .photostop .tagline::before {
+    background: #000000;
+    content: '';
+    width: 100%;
+    height: 1.5px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    transform-origin: right top;
+    transform: scale(0, 1);
+    transition: transform .3s;
+  }
+  .photostop .tagline:hover::before {
+    transform-origin: left top;
+    transform: scale(1, 1);
+  }
+
+  
+  .photostop .tag-delete-link {
+    color: #00006495; /* 削除リンクの色を赤にするなど、スタイルを追加できます */
+    margin-left: 6px;
+    padding-bottom: 5px;
+    text-transform: none; /* テキストの変換を無効にする */
+    text-decoration: none;
+  }
+
+  .photostop .tag-delete-link:hover {
+    font-weight: 900;
+    // text-decoration: underline;
+  }

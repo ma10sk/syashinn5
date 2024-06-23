@@ -1,16 +1,14 @@
-<%#= stylesheet_link_tag 'search', :media => "all" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <%= stylesheet_link_tag 'photossearch', :media => "all" %>
+</head>
+<body class="photossearch">
 
-<h3>ハッシュタグ一覧</h3>
-<% @tag_list.each do |list| %>
-  <i class="fa-solid fa-hashtag" style="color: #000000;">
-    <%= link_to list.tag_name, tag_photos_path(tag_id: list.id) %>
-  </i>
-  <%= "(#{list.photos.count})" %>
-<% end %>
+<div class="subtitle">
+<h2> # <%= @tag.tag_name %> </h2>
+</div>
 
-<p>#<%= @tag.tag_name %></p>
-
-画像をクリックすると投稿詳細が見られます
 <div class="photos-container">
   <% @photos.each do |photo| %>
     <%= link_to photo_path(photo.id) do %>
@@ -20,3 +18,22 @@
     <% end %>
   <% end %>
 </div>
+
+<div class="subsubtitle">
+<h3>ハッシュタグ一覧</h3>
+</div>
+<div class="taglist-container">
+<% @tag_list.each do |list| %>
+  <div class='taglist'>
+    <div class="tagline">
+    <i class="fa-solid fa-hashtag tag-icon"></i>
+    <%= link_to list.tag_name, tag_photos_path(tag_id: list.id), class: "tag-link" %>
+    <%= "(#{list.photos.count})" %>
+    </div>
+    <%= link_to "削除", destroy_tag_path(tag_id: list.id), data: { method: :delete, confirm: "本当に削除してもよろしいですか？" }, class: "tag-delete-link" %>
+  </div>
+<% end %>
+</div>
+
+</body>
+</html>

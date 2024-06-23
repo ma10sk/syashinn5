@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <%= stylesheet_link_tag 'userstop', :media => "all" %>
+
+</head>
+<body class="userstop">
+
+<main id="container">
+
+<div class="fit-left"><p id="page"> nimbus </p></div>
+<div class="fit-right"><p id="page-top"><a href="#"> pagetop </a></p></div>
+
+<section class="fixed">
+<p class="glowAnime"> Nimbus </p>
+<div class="scrolldown1"><span> Scroll </span></div>
+</section>
+
+<section class="fixed">
+
+<span class="smoothText"><span class="smoothTextTrigger">
+<div class="subtitle"><h2> Slogan </h2></div></span></span>
+
+<div class="h4-container">
+<h4><span class="smoothText"><span class="smoothTextTrigger"> タグ付けして投稿するだけ。 </span></span></h4>
+<h4><span class="smoothText"><span class="smoothTextTrigger"> 探したい写真がすぐ見つかる。 </span></span></h4>
+</div>
+</section>
+
+<section class="fixed">
+<span class="smoothText"><span class="smoothTextTrigger">
+<div class="subtitle2"><h3> Recommended for </h3></div></span></span>
+
+<div class="h5-container">
+<h5><span class="smoothText"><span class="smoothTextTrigger"> 写真を撮るのが好きな人 </span></span></h5>
+<h5><span class="smoothText"><span class="smoothTextTrigger"> よくスクリーンショットを撮る人 </span></span></h5>
+<h5><span class="smoothText"><span class="smoothTextTrigger"> 写真の保存枚数が多い人 </span></span></h5>
+</div>
+
+</section>
+
+
+</main>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stickyfill/2.1.0/stickyfill.min.js"></script>
+
+
+<script type="text/javascript">
+  $(window).on('load resize', function() {
+    var windowWidth = window.innerWidth;
+    var elements = $('.fixed');
+    if (windowWidth >= 768) {
+      Stickyfill.add(elements);
+    } else {
+      Stickyfill.remove(elements);
+    } 
+  });
+
+  // glowAnimeにglowというクラス名を付ける定義
+  function GlowAnimeControl() {
+    $('.glowAnime').each(function () {
+      var elemPos = $(this).offset().top - 50;
+      var scroll = $(window).scrollTop();
+      var windowHeight = $(window).height();
+      if (scroll >= elemPos - windowHeight) {
+        $(this).addClass("glow");
+      } else {
+        $(this).removeClass("glow");
+      }
+    });
+  }
+
+  // 画面をスクロールをしたら動かしたい場合の記述
+  $(window).scroll(function () {
+    GlowAnimeControl();/* アニメーション用の関数を呼ぶ*/
+  });
+
+  // 画面が読み込まれたらすぐに動かしたい場合の記述
+  $(window).on('load', function () {
+    // spanタグを追加する
+    var element = $(".glowAnime");
+    element.each(function () {
+      var text = $(this).text();
+      var textbox = "";
+      text.split('').forEach(function (t, i) {
+        if (t !== " ") {
+          if (i < 10) {
+            textbox += '<span style="animation-delay:.' + i + 's;">' + t + '</span>';
+          } else {
+            var n = i / 10;
+            textbox += '<span style="animation-delay:' + n + 's;">' + t + '</span>';
+          }
+        } else {
+          textbox += t;
+        }
+      });
+      $(this).html(textbox);
+    });
+
+    GlowAnimeControl();/* アニメーション用の関数を呼ぶ*/
+  });
+
+// smoothTriggerにsmoothTextAppearというクラス名を付ける定義
+function SmoothTextAnime() {
+	$('.smoothTextTrigger').each(function(){ //smoothTextTriggerというクラス名が
+		var elemPos = $(this).offset().top-50;//要素より、50px上の
+		var scroll = $(window).scrollTop();
+		var windowHeight = $(window).height();
+		if (scroll >= elemPos - windowHeight){
+		$(this).addClass('smoothTextAppear');// 画面内に入ったらsmoothTextAppearというクラス名を追記
+		}else{
+		$(this).removeClass('smoothTextAppear');// 画面外に出たらsmoothTextAppearというクラス名を外す
+		}
+		});	
+}
+
+
+
+// 画面をスクロールをしたら動かしたい場合の記述
+$(window).scroll(function () {
+	SmoothTextAnime();/* アニメーション用の関数を呼ぶ*/
+});// ここまで画面をスクロールをしたら動かしたい場合の記述
+
+// 画面が読み込まれたらすぐに動かしたい場合の記述
+$(window).on('load', function () {
+	SmoothTextAnime();/* アニメーション用の関数を呼ぶ*/
+});// ここまで画面が読み込まれたらすぐに動かしたい場合の記述
+
+//スクロールした際の動きを関数でまとめる
+function PageTopAnime() {
+	var scroll = $(window).scrollTop();
+	if (scroll >= 900){//上から900pxスクロールしたら
+		$('#page-top').removeClass('DownMove');//#page-topについているDownMoveというクラス名を除く
+		$('#page-top').addClass('UpMove');//#page-topについているUpMoveというクラス名を付与
+	}else{
+		if($('#page-top').hasClass('UpMove')){//すでに#page-topにUpMoveというクラス名がついていたら
+			$('#page-top').removeClass('UpMove');//UpMoveというクラス名を除き
+			$('#page-top').addClass('DownMove');//DownMoveというクラス名を#page-topに付与
+		}
+	}
+}
+
+// 画面をスクロールをしたら動かしたい場合の記述
+$(window).scroll(function () {
+	PageTopAnime();/* スクロールした際の動きの関数を呼ぶ*/
+});
+
+// ページが読み込まれたらすぐに動かしたい場合の記述
+$(window).on('load', function () {
+	PageTopAnime();/* スクロールした際の動きの関数を呼ぶ*/
+});
+
+// #page-topをクリックした際の設定
+$('#page-top a').click(function () {
+    $('body,html').animate({
+        scrollTop: 0//ページトップまでスクロール
+    }, 500);//ページトップスクロールの速さ。数字が大きいほど遅くなる
+    return false;//リンク自体の無効化
+});
+
+
+// 画面をスクロールをしたら動かしたい場合の記述
+$(window).scroll(function () {
+	SmoothTextAnime();/* アニメーション用の関数を呼ぶ*/
+});// ここまで画面をスクロールをしたら動かしたい場合の記述
+
+// 画面が読み込まれたらすぐに動かしたい場合の記述
+$(window).on('load', function () {
+	SmoothTextAnime();/* アニメーション用の関数を呼ぶ*/
+});// ここまで画面が読み込まれたらすぐに動かしたい場合の記述
+
+//スクロールした際の動きを関数でまとめる
+function PageAnime() {
+	var scroll = $(window).scrollTop();
+	if (scroll >= 900){//上から900pxスクロールしたら
+		$('#page').removeClass('DownMove');//#page-topについているDownMoveというクラス名を除く
+		$('#page').addClass('UpMove');//#page-topについているUpMoveというクラス名を付与
+	}else{
+		if($('#page').hasClass('UpMove')){//すでに#page-topにUpMoveというクラス名がついていたら
+			$('#page').removeClass('UpMove');//UpMoveというクラス名を除き
+			$('#page').addClass('DownMove');//DownMoveというクラス名を#page-topに付与
+		}
+	}
+}
+
+// 画面をスクロールをしたら動かしたい場合の記述
+$(window).scroll(function () {
+	PageAnime();/* スクロールした際の動きの関数を呼ぶ*/
+});
+
+// ページが読み込まれたらすぐに動かしたい場合の記述
+$(window).on('load', function () {
+	PageAnime();/* スクロールした際の動きの関数を呼ぶ*/
+});
+
+
+</script>
+
+
+
+</body>
+</html>

@@ -1,18 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%= stylesheet_link_tag 'usersedit', :media => "all" %>
+</head>
+<body class="usersedit">
+
+<div class="subtitle">
 <h2>アカウント情報の変更</h2>
+</div>
+
 <%#= resource_name.to_s.humanize %>
+
+<div class="useredit-container">
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
 
   <!--アカウント編集時に名前を入力できるようにフォームを追加-->
   <div class="field">
-    <%= f.label :name, "ユーザーネーム" %><br />
+    <%= f.label :name, "ユーザーネーム" %>
     <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
   </div>
 
   <div class="field">
-   <%= f.label :image_top, "アイコン画像" %><br />
-   <%= f.file_field :image_top, accept: "image/jpeg,image/gif,image/png" %>
+   <%= f.label :image_top, "アイコン画像 (変更する場合のみファイルを選択してください)" %>
+   <p><%= f.file_field :image_top, accept: "image/jpeg,image/gif,image/png" %></p>
    
    <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function() {
@@ -31,13 +43,13 @@
   </div>
 
   <!--アカウント編集時にプロフィールを入力できるようにフォームを追加-->
-  <div class="field">
-    <%= f.label :プロフィール %><br />
-    <%= f.text_area :profile, autofocus: true %>
-  </div>
+  <!-- div class="field" -->
+    <!-- %= f.label :プロフィール % br / -->
+    <!-- %= f.text_area :profile, autofocus: true % -->
+  <!-- /div -->
 
   <div class="field">
-    <%= f.label :email, "メールアドレス" %><br />
+    <%= f.label :email, "メールアドレス" %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
@@ -46,21 +58,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password, "新しいパスワード" %> <i>(変更しない場合は空欄のままにしてください)</i><br />
+    <%= f.label :password, "新しいパスワード (変更しない場合は空欄のままにしてください)" %>
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %>文字以上</em>
+      <div class="length">
+      <em><%= @minimum_password_length %>文字以上で設定してください</em>
+      </div>
     <% end %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation, "新しいパスワードの確認" %> <i>(変更しない場合は空欄のままにしてください)</i><br />
+    <%= f.label :password_confirmation, "新しいパスワードの確認 (変更しない場合は空欄のままにしてください)" %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password, "現在のパスワード" %> <i>(アカウント情報を変更する場合は現在のパスワードを入力してください)</i><br />
+    <%= f.label :current_password, "現在のパスワード (アカウント情報を変更する場合は現在のパスワードを入力してください)" %>
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
@@ -71,9 +84,14 @@
 
 <h3>アカウント削除</h3>
 
-<div>
+<div class="delete">
 <%#= link_to "アカウントを削除する", registration_path(resource_name), data: { method: :delete, confirm: "本当に削除しますか？" } %>
-<%= button_to "削除する", registration_path(resource_name), data: { confirm: "本当に削除しますか？", turbo_confirm: "本当に削除しますか？" }, method: :delete %>
+<%= button_to "削除する", registration_path(resource_name), data: { confirm: "本当に削除してもよろしいですか？", turbo_confirm: "本当に削除してもよろしいですか？" }, method: :delete %>
+</div>
+
 </div>
 
 <%#= link_to "Back", :back %>
+
+</body>
+</html>

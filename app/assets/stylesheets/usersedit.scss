@@ -1,0 +1,143 @@
+body {
+    background: url("cl7.jpeg");
+    background-repeat: repeat-x; /* 背景画像を水平方向に繰り返し */
+    background-size: cover; /* 背景画像のサイズ指定（画面全体を覆う） */
+    animation: bgiLoop 90s linear infinite;
+  }
+@keyframes bgiLoop {
+      0% { background-position: 0px 0px;}
+    100% { background-position: 1600px 0px;}
+  }
+
+.usersedit .subtitle {
+    display: flex;
+    align-items: center;
+    position: relative; /* 子要素の絶対位置を基準にする */
+    margin: 40px 0 0 0; /* 上にマージンを追加 */
+  }
+
+
+.usersedit h2 {
+    margin-left: 60px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 20px; /* 必要に応じて調整 */
+    font-weight: 500;
+    position: relative; /* before/after要素の基準 */
+    padding: 0 80px; /* 左右に余白を追加 */
+    display: inline-block;
+  }
+
+
+.usersedit h2:before,
+.usersedit h2:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 65px;
+    height: 1px;
+    background-color: black;
+    // display: inline-block;
+  }
+  
+.usersedit h2:before {
+    left: 0px;
+  }
+.usersedit h2:after {
+    right: 0px;
+  }
+
+.usersedit .useredit-container{
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    justify-content: center;
+    // background-color: #ffffff;
+    margin: 0px 60px 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    // padding-left: 60px;
+    // padding-right: 60px;
+    // gap: 20px;
+}
+
+
+.usersedit .useredit-container .field {
+    margin-bottom: 10px; /* 各フィールドの下に余白を追加 */
+  }
+  
+.usersedit .useredit-container label {
+    display: block; /* ラベルをブロック要素として表示 */
+    font-weight: 400;
+  }
+
+.usersedit .useredit-container .field input[type="text"],
+.usersedit .useredit-container .field input[type="email"],
+.usersedit .useredit-container .field input[type="password"] {
+    width: 20%;
+    height: 20px;
+    padding: 5px; /* 必要に応じてパディングを追加 */
+    box-sizing: border-box; /* パディングを含めたボックスモデルにする */
+  }
+
+.usersedit .useredit-container .field p {
+    margin-top: 7.5px;
+  }
+
+.usersedit .useredit-container .length em {
+    font-style: normal; /* 斜体を解除 */
+    font-size: 14px;
+    font-weight: 350;
+  }
+
+.usersedit .useredit-container .actions {
+    margin-top: 15px;
+  }
+
+.usersedit .useredit-container .actions input[type="submit"] {
+    display: inline-block;
+    font-size: 13px;
+    padding: 0.3em 1em;
+    text-decoration: none;
+    border: solid 1.5px #00000075;
+    border-radius: 3px;
+    transition: .4s;
+    height: 30px;
+    width: 80px;
+    text-align: center;
+    vertical-align: middle; /* 垂直方向の中央揃え */
+  }
+  
+.usersedit .useredit-container .actions input[type="submit"]:hover {
+    background: #00000075;
+    color: white;
+  }
+  
+.usersedit .useredit-container h3 {
+    font-size: 18px; /* 見出しのフォントサイズを設定 */
+    font-weight: 500;
+    margin-top: 20px;
+  }
+
+.usersedit .useredit-container .delete {
+    margin-top: 15px; /* アクションボタンの上部に余白を追加 */
+  }
+
+.usersedit .useredit-container .delete input[type="submit"] {
+    display: inline-block;
+    font-size: 13px;
+    padding: 0.3em 1em;
+    text-decoration: none;
+    border: solid 1.5px #00000075;
+    border-radius: 3px;
+    transition: .4s;
+    height: 30px;
+    width: 80px;
+    text-align: center;
+    vertical-align: middle; /* 垂直方向の中央揃え */
+}
+
+.usersedit .useredit-container .delete input[type="submit"]:hover {
+    background: #00000075;
+    color: white;
+}

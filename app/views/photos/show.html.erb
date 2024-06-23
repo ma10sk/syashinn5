@@ -1,19 +1,42 @@
-<h3>投稿詳細</h3>
-<div class="image-top">
-  <%= image_tag @photo.resize_image_top if @photo.image_top.attached? %>
-  <br>
-  投稿日時 <%= @photo.created_at %>
+<!DOCTYPE html>
+<html>
+<head>
+    <%= stylesheet_link_tag 'photosshow', :media => "all" %>
+</head>
+<body class="photosshow">
 
-  <br>
-  <% @photo_tags.each do |tag| %>
-    <% if tag.photos.count > 0 %>
-      <i class="fa-solid fa-hashtag" style="color: #000000;"><%= link_to tag.tag_name, tag_photos_path(tag_id: tag.id) %></i>
-      <%= "(#{tag.photos.count})" %>
-    <% end %>
-  <% end %>
-
+<div class="subtitle">
+<h2>投稿詳細</h2>
 </div>
 
-<%= link_to "編集", edit_photo_path(@photo.id) %>
-<%= link_to "削除", photo_path(@photo.id), data: { method: :delete, confirm: "本当に削除しますか？" } %>
-<%#= button_to "削除", photo_path(@photo.id), method: :delete, data: { confirm: "本当に削除しますか？" } %>
+<div class="photo-container">
+  <div class="image-top">
+  <%= image_tag @photo.resize_image_top if @photo.image_top.attached? %>
+  </div>
+
+  投稿日時  <%= @photo.created_at.to_s(:datetime_jp) %>
+
+  <div class="taglist-container">
+  <% @photo_tags.each do |tag| %>
+    <% if tag.photos.count > 0 %>
+    <div class='taglist'>
+      <div class="tagline">
+      <i class="fa-solid fa-hashtag tag-icon"></i>
+      <%= link_to tag.tag_name, tag_photos_path(tag_id: tag.id), class: "tag-link" %>
+      <%= "(#{tag.photos.count})" %>
+      </div>
+      </div>
+    <% end %>
+  <% end %>
+  </div>
+
+<div class="tag-delete-link-container">
+<%= link_to "ハッシュタグ編集", edit_photo_path(@photo.id), class: "tag-delete-link" %>
+<%= link_to "投稿削除", photo_path(@photo.id), data: { method: :delete, confirm: "本当に削除してもよろしいですか？" }, class: "tag-delete-link" %>
+</div>
+</div>
+
+
+
+</body>
+</html>

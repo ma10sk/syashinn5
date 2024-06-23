@@ -1,0 +1,380 @@
+#container{
+	position: relative;
+}
+
+.fit-left {
+  color: #00000095;
+  text-align: center;
+  position: fixed;
+  letter-spacing: 0.15em;
+  left: 30px;
+  top: 40%;
+  transform: translate(0, -50%) rotate(90deg) translateY(-30px);
+  transform-origin: bottom left;
+  z-index: 2;
+}
+
+/*リンクを固定*/
+#page {
+  position: fixed;
+  left: 30px;
+  top: 40%;
+  transform: translateY(-50%) rotate(90deg);
+  transform-origin: bottom left;
+  z-index: 2;
+    /*はじめは非表示*/
+	opacity: 0;
+	transform: translateY(100px);
+}
+
+/*　上に上がる動き　*/
+
+#page.UpMove{
+	animation: UpAnime 0.5s forwards;
+}
+@keyframes UpAnime{
+  from {
+    opacity: 0;
+	transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+	transform: translateY(0);
+  }
+}
+
+/*　下に下がる動き　*/
+
+#page.DownMove{
+	animation: DownAnime 0.5s forwards;
+}
+@keyframes DownAnime{
+  from {
+  	opacity: 1;
+	transform: translateY(0);
+  }
+  to {
+  	opacity: 1;
+	transform: translateY(100px);
+  }
+}
+
+
+
+.fit-right {
+  color: #00000095;
+  text-align: center;
+  position: fixed;
+  letter-spacing: 0.15em;
+  right: 30px;
+  top: 40%;
+  transform: translate(0, -50%) rotate(-90deg) translateY(-30px);
+  transform-origin: bottom right;
+  z-index: 2;
+}
+
+/*リンクの形状*/
+#page-top a{
+  color: #00000095;
+  text-align: center;
+	// text-transform: uppercase; 
+	text-decoration: none;
+	// transition:all 0.3s;
+}
+
+/*リンクを固定*/
+#page-top {
+  position: fixed;
+  right: 30px;
+  top: 40%;
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: bottom right;
+  z-index: 2;
+    /*はじめは非表示*/
+	opacity: 0;
+	transform: translateY(100px);
+}
+
+/*　上に上がる動き　*/
+
+#page-top.UpMove{
+	animation: UpAnime 0.5s forwards;
+}
+@keyframes UpAnime{
+  from {
+    opacity: 0;
+	transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+	transform: translateY(0);
+  }
+}
+
+/*　下に下がる動き　*/
+
+#page-top.DownMove{
+	animation: DownAnime 0.5s forwards;
+}
+@keyframes DownAnime{
+  from {
+  	opacity: 1;
+	transform: translateY(0);
+  }
+  to {
+  	opacity: 1;
+	transform: translateY(100px);
+  }
+}
+
+section.fixed{
+  background: url("cl10.jpeg");
+  background-repeat: repeat-x; /* 背景画像を水平方向に繰り返し */
+  background-size: cover; /* 背景画像のサイズ指定（画面全体を覆う） */
+  animation: bgiLoop 20s linear infinite;
+  z-index: 1;
+}
+
+@keyframes bgiLoop {
+  0% { background-position: 0px 0px;}
+100% { background-position: 1600px 0px;}
+}
+
+section.fixed{
+	position: -webkit-sticky;/*Safari*/
+	position: sticky;
+	top:0px;
+  min-height: 100vh;
+	padding: 50px 0;
+  display: flex; /* Use flexbox for centering */
+  flex-direction: column;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+
+
+
+/*＝＝＝＝＝タブレット以下の見え方 ＝＝＝＝＝*/
+
+@media screen and (max-width:768px){
+	section.fixed{
+	position:relative!important;/*sticky解除*/
+	top:0;/*70px⇒0pxに戻す*/
+}
+	section.fixed:first-of-type{
+	padding-top:100px;
+	/*最初の要素は上部にHeaderの高さ以上の余白をとる*/
+	}
+}
+
+
+.glowAnime {
+  font-family: 'Quicksand', sans-serif;
+  text-align: center;
+  font-size: 150px; /* Corrected font size */
+  color: #969696;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  transform: translateY(-120px);
+}
+
+
+.glowAnime span { opacity: 0; }
+
+.glowAnime.glow span { animation: glow_anime_on 1.5s ease-out forwards; }
+
+@keyframes glow_anime_on {
+  0% { opacity: 0; text-shadow: 0 0 0 #c8c8c8, 0 0 0 #c8c8c8; }
+  50% { opacity: 1; text-shadow: 0 0 100px #c8c8c8, 0 0 150px #c8c8c8; }
+  100% { opacity: 1; text-shadow: 0 0 0 #c8c8c8, 0 0 0 #c8c8c8; }
+}
+
+/*====== 9-1-1 縦線が動いてスクロールを促す =======*/
+
+/*スクロールダウン全体の場所*/
+.scrolldown1{
+  /*描画位置※位置は適宜調整してください*/
+position:absolute;
+left:50%;
+bottom:170px;
+  /*全体の高さ*/
+height:50px;
+}
+
+/*Scrollテキストの描写*/
+.scrolldown1 span{
+  /*描画位置*/
+position: absolute;
+left:-15px;
+top: -15px;
+  /*テキストの形状*/
+color: #969696;
+font-size: 0.7rem;
+letter-spacing: 0.05em;
+}
+
+/* 線の描写 */
+.scrolldown1::after{
+content: "";
+  /*描画位置*/
+position: absolute;
+top: 0;
+  /*線の形状*/
+width: 1px;
+height: 30px;
+background: #969696;
+  /*線の動き1.4秒かけて動く。永遠にループ*/
+animation: pathmove 1.4s ease-in-out infinite;
+opacity:0;
+}
+
+/*高さ・位置・透過が変化して線が上から下に動く*/
+@keyframes pathmove{
+0%{
+  height:0;
+  top:0;
+  opacity: 0;
+}
+30%{
+  height:30px;
+  opacity: 1;
+}
+100%{
+  height:0;
+  top:50px;
+  opacity: 0;
+}
+}
+
+
+span.smoothText {
+	// overflow: hidden;
+  overflow: visible;
+	display: block;
+}
+
+/* アニメーションで傾斜がついている文字列を水平に戻す*/
+span.smoothTextTrigger{
+	transition: .8s ease-in-out;
+	transform: translate3d(0,100%,0) skewY(12deg);
+	transform-origin: left;
+	display: block;
+}
+span.smoothTextTrigger.smoothTextAppear{
+    transform: translate3d(0,0,0) skewY(0);
+}
+
+
+.userstop .subtitle {
+  display: flex;
+  justify-content: center;
+  margin: 0px 0 0 0; 
+  transform: translateY(-80px);
+}
+
+.userstop h2 {
+    font-family: 'Quicksand', sans-serif;
+    text-align:center;
+    position: relative;
+    display: inline-block;
+    color: #4b4b4b;
+    font-size: 70px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    // margin-bottom: 30px;
+    // padding: 0 120px;
+    padding-left: 140px;
+    padding-right: 110px;
+}
+
+
+.userstop h2:before,
+.userstop h2:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  width: 100px;
+  height: 1.5px;
+  background-color: #4b4b4b;
+}
+
+.userstop h2:before {
+  left: 0px;
+}
+.userstop h2:after {
+  right: 0px;
+}
+
+.userstop .h4-container{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  // margin-top: 200px;
+  transform: translate(15px, -30px);
+}
+
+.userstop h4 {
+  text-align:center;
+  color: #969696;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  margin-bottom: 30px;
+}
+
+
+.userstop .subtitle2 {
+  display: flex;
+  justify-content: center;
+  margin: 0px 0 0 0; 
+  transform: translateY(50px);
+}
+
+.userstop h3 {
+  font-family: 'Quicksand', sans-serif;
+  text-align:center;
+  position: relative;
+  display: inline-block;
+  color: #4b4b4b;
+  font-size: 50px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  margin-bottom: 30px;
+  padding-left: 90px;
+  padding-right: 80px;
+}
+
+.userstop h3:before,
+.userstop h3:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  width: 60px;
+  height: 1.5px;
+  background-color: #4b4b4b;
+}
+
+.userstop h3:before {
+  left: 0px;
+}
+.userstop h3:after {
+  right: 0px;
+}
+
+.userstop .h5-container{
+  // margin-top: 200px;
+  transform: translateY(80px);
+}
+
+.userstop h5 {
+    text-align:center;
+    color: #969696;
+    font-size: 25px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    margin-bottom: 30px;
+}
+

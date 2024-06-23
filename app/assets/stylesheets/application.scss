@@ -1,0 +1,112 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ * {
+    padding: 0;
+    margin: 0;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* ビューポートの高さを最小高さに設定 */
+    margin: 0;
+    font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    // font-family: "Noto Serif JP", serif;
+  }
+
+  main {
+    flex: 1; /* 残りのスペースを占有 */
+  }
+  
+
+  header {
+    background-color: #00000075 ;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // font-weight: bold;
+  }
+
+  header h1 {
+    font-family: 'Quicksand', sans-serif;
+    color: #ffffff;
+    align-items: center;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    margin-left: 30px;
+  }
+
+  header a {
+    color: #ffffff; 
+    text-decoration: none;
+    font-weight: 400; 
+    padding-bottom: 5px;
+    position: relative;
+  }
+
+  header a:hover{
+    font-weight: 600;
+  }
+
+  header a::before {
+    background: #ffffff;
+    content: '';
+    width: 100%;
+    height: 1.5px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    transform-origin: center top; /*中央からアンダーライン */
+    transform: scale(0, 1);
+    transition: transform .3s;
+  }
+  header a:hover::before {
+    transform-origin: center top;
+    transform: scale(1, 1);
+  }
+
+
+  .header-list {
+    display: flex;
+    align-items: center;
+  }
+  header ul {
+    display: flex;
+  }
+  header li {
+    list-style: none;
+    margin-right: 40px;
+  }
+
+  footer {
+    font-family: 'Quicksand', sans-serif;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    height: 30px;
+    background-color: #00000075 ;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto; /* 自動で上のマージンを設定し、下端に配置 */
+    // position: fixed;
+  }

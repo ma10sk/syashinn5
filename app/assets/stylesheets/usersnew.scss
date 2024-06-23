@@ -1,0 +1,126 @@
+body {
+    background: url("cl7.jpeg");
+    background-repeat: repeat-x; /* 背景画像を水平方向に繰り返し */
+    background-size: cover; /* 背景画像のサイズ指定（画面全体を覆う） */
+    animation: bgiLoop 90s linear infinite;
+  }
+@keyframes bgiLoop {
+      0% { background-position: 0px 0px;}
+    100% { background-position: 1600px 0px;}
+  }
+
+.usersnew .subtitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* 子要素の絶対位置を基準にする */
+    margin: 60px 0 0 0; /* 上にマージンを追加 */
+  }
+
+
+.usersnew h2 {
+    // margin-left: 60px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 30px; /* 必要に応じて調整 */
+    font-weight: 500;
+    position: relative; /* before/after要素の基準 */
+    padding: 0 60px; /* 左右に余白を追加 */
+    display: inline-block;
+  }
+
+
+.usersnew h2:before,
+.usersnew h2:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 45px;
+    height: 1px;
+    background-color: black;
+    // display: inline-block;
+  }
+  
+.usersnew h2:before {
+    left: 0px;
+  }
+.usersnew h2:after {
+    right: 0px;
+  }
+
+.usersnew .usernew-container{
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    justify-content: center;
+    // background-color: #ffffff;
+    margin: 20px 60px 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    // padding-left: 300px;
+    // gap: 20px;
+}
+
+
+.usersnew .usernew-container .field {
+    margin-bottom: 13px; /* 各フィールドの下に余白を追加 */
+    display: flex;
+    flex-direction: column; /* 縦方向に配置 */
+    align-items: center; /* 左右中央に配置 */
+  }
+  
+.usersnew .usernew-container label {
+    display: block;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: left; /* ラベルの文字を左寄せ */
+    width: 25%; /* ラベルをフィールドの幅に合わせる */
+  }
+
+.usersnew .usernew-container .field input[type="text"],
+.usersnew .usernew-container .field input[type="email"],
+.usersnew .usernew-container .field input[type="password"] {
+    width: 25%;
+    height: 25px;
+    padding: 5px; /* 必要に応じてパディングを追加 */
+    box-sizing: border-box; /* パディングを含めたボックスモデルにする */
+    margin-top: 10px;
+  }
+
+.usersnew .usernew-container .length {
+    width: 100%;
+    text-align: left; /* テキストを左寄せ */
+}
+
+.usersnew .usernew-container .length em {
+    font-style: normal; /* 斜体を解除 */
+    font-size: 15px;
+    font-weight: 350;
+    display: block; /* ブロック要素として表示 */
+    margin-left: 37.5%; /* ラベルの位置と合わせるための左マージン */
+  }
+
+.usersnew .usernew-container .actions {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+  }
+
+.usersnew .usernew-container .actions input[type="submit"] {
+    display: inline-block;
+    font-size: 15px;
+    padding: 0.3em 1em;
+    text-decoration: none;
+    border: solid 1.5px #00000075;
+    border-radius: 3px;
+    transition: .4s;
+    height: 35px;
+    width: 100px;
+    text-align: center;
+    vertical-align: middle; /* 垂直方向の中央揃え */
+  }
+  
+.usersnew .usernew-container .actions input[type="submit"]:hover {
+    background: #00000075;
+    color: white;
+  }
