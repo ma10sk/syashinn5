@@ -1,6 +1,6 @@
 databases:
   - name: syashinn5_DB
-    databaseName: syashinn5_db
+    databaseName: syashinn5_db_8cpd
     user: syashinn5
     region: singapore
 
